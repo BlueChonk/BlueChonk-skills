@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "完全中文交互；依赖 Python（validate_trace_scores.py）；无外部服务依赖；适配所有平台",
+      "userReason": "全中文阅读，需要 Python 环境",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 4.5,
+          "reason": "SKILL.md 全中文；Python 脚本可直接运行；无外部服务依赖；validate_trace_scores.py 有完整校验逻辑",
+          "userReason": "全中文阅读，脚本直接可用"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "6 步核心流程逻辑清晰；validate_trace_scores.py 有完整字段校验；6 个 references 详细；但 trust.scan 固定跳过降低了完整性",
+      "userReason": "流程清晰，校验脚本完善",
+      "items": {
+        "stability": {
+          "score": 4.0,
+          "reason": "validate_trace_scores.py 有维度/子项/分数范围/必填字段校验；6 步流程（定位→探索→评分→摘要→校验→交付）逻辑清晰；但无重试机制",
+          "userReason": "校验脚本完善，流程稳定"
+        },
+        "func": {
+          "score": 4.5,
+          "reason": "核心功能完整：目标定位（4 种优先级）、探索策略、5 维 15 子项评分、摘要生成、JSON 校验、人类可读输出；但 trust.scan 固定跳过",
+          "userReason": "评测流程全部覆盖，但安全扫描跳过"
+        },
+        "errorHandling": {
+          "score": 4.5,
+          "reason": "validate_trace_scores.py 强制校验（分数范围/必填字段/skipped 规则）；有禁止项清单（3 条）；探索策略有停止条件",
+          "userReason": "校验脚本确保输出合规"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "能力边界清晰（TRACE 5 维 15 子项）；触发词丰富；有 4 种目标定位策略",
+      "userReason": "知道什么时候用，支持多种定位方式",
+      "items": {
+        "boundary": {
+          "score": 5.0,
+          "reason": "明确列出 TRACE 5 维 15 子项；有禁止项清单（3 条）；有目标定位优先级（4 级）；trust.scan 固定跳过有说明",
+          "userReason": "评测范围和限制写得很清楚"
+        },
+        "trigger": {
+          "score": 5.0,
+          "reason": "description 触发词覆盖 TRACE 评测/打分/评估/五维度评测等；条件清晰",
+          "userReason": "各种评测场景都能匹配到"
+        }
+      }
+    },
+    "convention": {
+      "reason": "渐进式披露优秀（6 步流程 + 6 个 references）；结构清晰（79 行主体精简）；文档质量高（有输出 schema + 示例）；有禁止项清单",
+      "userReason": "流程清晰，references 详细，主体精简",
+      "items": {
+        "progressive": {
+          "score": 5.0,
+          "reason": "6 步核心流程（定位→探索→评分→摘要→校验→交付）递进关系清晰；references 按需加载（explore + 5 维度 + schema）",
+          "userReason": "流程清晰，可以先看流程再读 references"
+        },
+        "structure": {
+          "score": 5.0,
+          "reason": "79 行主体极致精简；6 个 references 索引清晰；有 JSON schema 模板；有禁止项清单",
+          "userReason": "主体精简，详细标准在 references"
+        },
+        "docQuality": {
+          "score": 5.0,
+          "reason": "有输出 JSON schema（output-schema.md 115 行）；有有效/无效示例（examples/）；有评分细则（5 个维度 references）；有校验脚本",
+          "userReason": "有完整 schema 和示例"
+        },
+        "antiPatternFaq": {
+          "score": 3.5,
+          "reason": "有禁止项清单（3 条）；但无反模式章节或 FAQ",
+          "userReason": "有禁止项，但缺少常见错误提示"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "评测流程准确可执行；内容完整覆盖 5 维 15 子项；开箱即用度好；校验脚本确保输出合规",
+      "userReason": "按流程操作就能完成评测，校验脚本确保结果合规",
+      "items": {
+        "accuracy": {
+          "score": 5.0,
+          "reason": "评分细则精确（5 级标准）；JSON schema 规范；校验脚本强制合规",
+          "userReason": "评分标准清晰，校验脚本确保合规"
+        },
+        "completeness": {
+          "score": 4.5,
+          "reason": "覆盖 5 维 15 子项；有摘要（开发者+用户双视角）；但 trust.scan 固定跳过降低了完整性",
+          "userReason": "评测维度全面，但安全扫描跳过"
+        },
+        "usability": {
+          "score": 4.5,
+          "reason": "流程清晰可执行；校验脚本自动化；references 按需加载",
+          "userReason": "按步骤操作就能完成评测"
+        },
+        "creativity": {
+          "score": 4.0,
+          "reason": "双视角摘要（开发者+用户）有独到价值；JSON 校验自动化实用；探索策略（先结构后细节）有增值",
+          "userReason": "双视角摘要和自动校验是额外亮点"
+        }
+      }
+    }
+  },
+  "summary": "skillhub-trace-evaluator 是专业的 skill 评测框架，6 步流程 + 5 维 15 子项设计严谨。79 行主体极致精简，6 个 references 按需加载。validate_trace_scores.py 校验脚本确保输出合规。双视角摘要（开发者+用户）有独到价值。主要不足：trust.scan 固定跳过降低了 Trust 维度完整性；无反模式/FAQ。",
+  "userSummary": "专业的 skill 评测框架，流程清晰，评分标准明确。校验脚本确保结果合规，双视角摘要有用。全中文阅读，主体精简。安全扫描固定跳过是小遗憾。"
+}

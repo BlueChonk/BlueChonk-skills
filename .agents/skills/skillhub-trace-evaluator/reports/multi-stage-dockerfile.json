@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "英文为主；无外部服务依赖；纯文档型 skill；适配所有平台",
+      "userReason": "不需要联网，任何平台可用，但内容为英文",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 2.0,
+          "reason": "SKILL.md 全英文，无中文支持；无外部服务依赖；纯文档型 skill 无需 API",
+          "userReason": "内容为英文，中文用户需要额外翻译"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "纯文档型 skill 无脚本执行；内容稳定；但缺乏实际 Dockerfile 示例验证",
+      "userReason": "文档内容稳定，但缺少可运行的示例",
+      "items": {
+        "stability": {
+          "score": 3.0,
+          "reason": "纯 Markdown 无脚本，不存在运行崩溃；但内容过于简略，无法验证实际效果",
+          "userReason": "文档不会出错，但内容太少无法判断实际效果"
+        },
+        "func": {
+          "score": 2.0,
+          "reason": "仅列出原则性指导（多阶段结构、基础镜像、层优化、安全、性能），无具体 Dockerfile 模板或可执行示例",
+          "userReason": "只有原则没有实际模板，用起来需要自己从头写"
+        },
+        "errorHandling": {
+          "score": 2.0,
+          "reason": "无错误处理指导；无故障排查；仅有原则性描述",
+          "userReason": "出错时没有排查方法"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "无明确能力边界说明；触发方式简单；适用语言/框架范围模糊",
+      "userReason": "不知道具体支持什么语言，触发方式简单",
+      "items": {
+        "boundary": {
+          "score": 2.0,
+          "reason": "未明确列出能做什么、不能做什么；未说明支持的语言/框架范围；无输入输出约束",
+          "userReason": "不知道具体适用场景和限制"
+        },
+        "trigger": {
+          "score": 2.0,
+          "reason": "description 仅一句话，无触发示例；用户需要猜测何时使用",
+          "userReason": "触发方式不明确，需要猜测"
+        }
+      }
+    },
+    "convention": {
+      "reason": "无渐进式披露（46 行平铺）；无目录结构；无具体用例或输出样例；无反模式或 FAQ",
+      "userReason": "内容平铺直叙，没有示例和 FAQ",
+      "items": {
+        "progressive": {
+          "score": 2.0,
+          "reason": "46 行平铺直叙，无层次递进；所有信息堆砌在一起",
+          "userReason": "信息堆砌，没有从简单到复杂的层次"
+        },
+        "structure": {
+          "score": 2.0,
+          "reason": "无目录、无章节划分、无模块组织；仅 5 个段落标题",
+          "userReason": "结构松散，找不到关键内容"
+        },
+        "docQuality": {
+          "score": 1.5,
+          "reason": "无任何 Dockerfile 示例、输出样例或真实项目参考；仅有原则性描述",
+          "userReason": "没有任何可以直接使用的示例"
+        },
+        "antiPatternFaq": {
+          "score": 1.0,
+          "reason": "无任何反模式说明或 FAQ",
+          "userReason": "没有常见错误提示"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "原则性指导正确但过于简略；缺乏实际可执行内容；开箱即用度低；无创新",
+      "userReason": "内容正确但太少，实际帮助有限",
+      "items": {
+        "accuracy": {
+          "score": 3.0,
+          "reason": "原则性描述正确（多阶段构建、层优化、安全实践），但缺乏具体示例验证",
+          "userReason": "原则正确，但没有实际示例"
+        },
+        "completeness": {
+          "score": 1.5,
+          "reason": "仅覆盖基本概念，缺少具体语言/框架的 Dockerfile 模板、.dockerignore 示例、构建命令",
+          "userReason": "内容太少，实际使用需要自己补充"
+        },
+        "usability": {
+          "score": 2.0,
+          "reason": "无法直接调用产生价值；需要用户自己从头编写 Dockerfile",
+          "userReason": "不能直接用，需要自己写"
+        },
+        "creativity": {
+          "score": 1.5,
+          "reason": "仅有基础原则，无额外洞察或创新方案",
+          "userReason": "内容基础，没有额外价值"
+        }
+      }
+    }
+  },
+  "summary": "multi-stage-dockerfile 严重欠开发，仅 46 行原则性描述，无具体 Dockerfile 示例、无模板、无 FAQ、无反模式。内容正确但过于简略，实际使用价值有限。建议补充 Node.js/Python/Go 的具体多阶段构建模板、.dockerignore 示例、构建命令和输出样例。当前状态仅为 placeholder，需大幅扩展。",
+  "userSummary": "内容太少，只有基本原则没有实际示例。需要自己从头写 Dockerfile，帮助有限。建议补充具体语言的模板和示例。"
+}

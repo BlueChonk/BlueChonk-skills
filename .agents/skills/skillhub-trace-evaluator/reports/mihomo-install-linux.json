@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "完全中文交互；依赖 GitHub API 和 ghproxy 镜像；国内网络有镜像加速方案；仅支持 Linux",
+      "userReason": "全中文阅读，国内下载有镜像加速",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 4.0,
+          "reason": "SKILL.md 全中文；依赖 GitHub API 和 ghproxy 镜像（国内可访问）；有国内镜像加速方案；但一键部署脚本中 your-repo 占位符需替换",
+          "userReason": "中文体验好，国内下载有镜像加速，但一键脚本需要修改地址"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "references/installation.md 有完整安装脚本（含架构检测、重试、镜像回退）；references 丰富（6 个文档）；但一键部署脚本中 your-repo 占位符无法直接执行",
+      "userReason": "安装脚本稳定有重试机制，但一键部署需要修改地址",
+      "items": {
+        "stability": {
+          "score": 3.5,
+          "reason": "installation.md 有架构检测、重试机制（MAX_RETRIES=3）、镜像回退；但 SKILL.md 一键部署脚本引用 your-repo 占位符，无法直接执行",
+          "userReason": "安装脚本稳定，但一键部署需要手动修改地址"
+        },
+        "func": {
+          "score": 4.0,
+          "reason": "核心功能完整：安装、配置、TUN 模式、DNS 设置、多订阅负载均衡、健康检查、流量统计、订阅聚合；references 有 6 个文档",
+          "userReason": "从安装到高级配置全部覆盖"
+        },
+        "errorHandling": {
+          "score": 4.0,
+          "reason": "troubleshooting.md 有 12 种常见问题对照表；installation.md 有错误处理（架构不支持/下载超时）；anti-patterns.md 有 17 条反模式",
+          "userReason": "常见问题有对照表可排查"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "能力边界清晰（仅 Linux，不支持非 systemd/macOS/Windows/rootless 容器）；触发话术丰富；平台依赖明确",
+      "userReason": "知道只支持 Linux，触发词覆盖安装/排查/订阅等场景",
+      "items": {
+        "boundary": {
+          "score": 5.0,
+          "reason": "明确列出不支持的 4 类场景（非 systemd 发行版/macOS/Windows/rootless 容器）；有架构支持表（amd64/arm64/arm）；有依赖要求表",
+          "userReason": "支持什么系统、需要什么依赖写得很清楚"
+        },
+        "trigger": {
+          "score": 5.0,
+          "reason": "description 含 8 个触发话术（安装/排查/订阅更新/TUN 模式/负载均衡/DNS/服务挂了）；条件清晰",
+          "userReason": "各种使用场景都能匹配到"
+        }
+      }
+    },
+    "convention": {
+      "reason": "渐进式披露良好（快速开始→平台依赖→文档索引→操作速查→输出样例）；结构清晰；references 丰富；反模式 17 条 + FAQ 20 条",
+      "userReason": "从快速部署到高级配置分层清晰，反模式丰富",
+      "items": {
+        "progressive": {
+          "score": 4.5,
+          "reason": "从一键部署→分步部署→部署验证→文档索引→操作速查→输出样例，层次分明",
+          "userReason": "可以先一键部署跑起来，需要时再深入配置"
+        },
+        "structure": {
+          "score": 4.0,
+          "reason": "主体 229 行精简；6 个 references 文档（installation/configuration/troubleshooting/anti-patterns/toolkit/config.yaml）；但 references 行数较多（installation.md 375 行、configuration.md 776 行）",
+          "userReason": "主体精简，详细文档在 references"
+        },
+        "docQuality": {
+          "score": 4.5,
+          "reason": "有完整配置模板（config.yaml）；有输出样例（mihomo -t/健康检查/流量报告/订阅聚合）；toolkit.md 有 768 行工具集代码",
+          "userReason": "配置模板和输出样例帮助确认结果"
+        },
+        "antiPatternFaq": {
+          "score": 5.0,
+          "reason": "anti-patterns.md 有 17 条反模式 + 20 条 FAQ；覆盖安全、配置、运维各方面",
+          "userReason": "反模式丰富，帮助避免常见错误"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "安装流程准确；内容完整覆盖部署全流程；但一键脚本占位符影响开箱即用度；工具集有增值",
+      "userReason": "按步骤操作能完成部署，工具集是额外亮点",
+      "items": {
+        "accuracy": {
+          "score": 3.5,
+          "reason": "installation.md 脚本格式规范；但 SKILL.md 一键部署脚本中 your-repo 占位符无法直接执行",
+          "userReason": "安装脚本准确，但一键部署需要修改地址"
+        },
+        "completeness": {
+          "score": 4.5,
+          "reason": "覆盖安装→配置→TUN→DNS→多订阅→健康检查→流量统计→订阅聚合→规则生成→自动更新全流程",
+          "userReason": "从安装到高级运维全部覆盖"
+        },
+        "usability": {
+          "score": 3.5,
+          "reason": "一键部署脚本因占位符无法直接执行；分步部署流程清晰；references 丰富但需跳转阅读",
+          "userReason": "一键部署需要修改地址，分步部署清晰"
+        },
+        "creativity": {
+          "score": 4.5,
+          "reason": "订阅聚合器（多机场合并去重排序）、规则生成器、流量统计脚本、自动更新 cron 等工具集有独到价值",
+          "userReason": "订阅聚合和流量统计工具是额外亮点"
+        }
+      }
+    }
+  },
+  "summary": "mihomo-install-linux 是一站式 Mihomo 部署方案，从安装到高级运维全覆盖。references 丰富（6 个文档），工具集（订阅聚合/流量统计/规则生成）有独到价值。主要问题：SKILL.md 一键部署脚本中引用 your-repo 占位符，无法直接执行，严重影响开箱即用度。建议替换为实际 URL 或移除一键部署改为引用 references/installation.md。",
+  "userSummary": "Mihomo 部署的全流程指南，从安装到高级配置都有。工具集（订阅聚合/流量统计）是额外亮点。主要问题：一键部署脚本需要修改地址才能执行，略有不便。全中文阅读，国内下载有镜像加速。"
+}

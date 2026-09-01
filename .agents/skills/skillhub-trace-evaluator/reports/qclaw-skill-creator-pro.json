@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "中英混合（主体中文 + 英文模板）；依赖 Python 和 ~/.qclaw/skills 路径；无外部服务依赖",
+      "userReason": "主要中文阅读，需要 Python 环境",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 4.0,
+          "reason": "SKILL.md 主体中文；Python 脚本可直接运行；但模板内容为英文（SKILL.md 模板、description 模板）；依赖 ~/.qclaw/skills 路径",
+          "userReason": "主要中文阅读，但模板是英文"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "3 个 Python 脚本（init/package/validate）；init_skill.py 有模板生成；但 SKILL.md 第 36-75 行有 PowerShell 调试残留代码",
+      "userReason": "脚本功能完善，但有开发残留代码",
+      "items": {
+        "stability": {
+          "score": 3.5,
+          "reason": "init_skill.py 有路径验证和模板生成；但 SKILL.md 第 36-75 行混入 PowerShell 替换代码（$content -replace），像是开发残留",
+          "userReason": "脚本稳定，但有开发残留代码需清理"
+        },
+        "func": {
+          "score": 4.5,
+          "reason": "核心功能完整：init_skill.py（项目初始化）、package_skill.py（打包）、quick_validate.py（校验）；有渐进式披露设计原则；有 3 种设计模式；有 Gotchas 必写要求",
+          "userReason": "初始化、打包、校验三个脚本各司其职"
+        },
+        "errorHandling": {
+          "score": 4.0,
+          "reason": "有质量自检清单（12 项）；有 Gotchas 必写要求；package_skill.py 有自动校验；但 SKILL.md 中调试残留代码未清理",
+          "userReason": "有质量清单和校验，但残留代码需清理"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "能力边界清晰（skill 创建指南）；触发方式明确；但依赖特定路径（~/.qclaw/skills）",
+      "userReason": "知道什么时候用，但需要特定目录",
+      "items": {
+        "boundary": {
+          "score": 4.5,
+          "reason": "明确说明 skill 创建流程（6 步）；有不应包含的文件列表（README.md/INSTALLATION_GUIDE.md 等）；有渐进式披露设计原则",
+          "userReason": "能做什么、不能做什么有说明"
+        },
+        "trigger": {
+          "score": 4.0,
+          "reason": "description 明确（创建/更新 skill）；但触发示例较少",
+          "userReason": "触发方式明确，但示例不够丰富"
+        }
+      }
+    },
+    "convention": {
+      "reason": "渐进式披露良好（6 步流程 + 设计原则 + 设计模式）；结构清晰；文档质量高（有模板和模式）；有 Gotchas 要求",
+      "userReason": "从创建到打包分层清晰，有设计模式和模板",
+      "items": {
+        "progressive": {
+          "score": 4.5,
+          "reason": "从理解→规划→初始化→编辑→打包→迭代，层次分明；有渐进式披露设计原则（3 种模式）；有领域组织策略",
+          "userReason": "从创建到打包流程清晰"
+        },
+        "structure": {
+          "score": 4.0,
+          "reason": "519 行 + 2 个 references + 3 个脚本；结构清晰；但第 36-75 行有 PowerShell 调试残留代码",
+          "userReason": "结构清晰，但有开发残留代码"
+        },
+        "docQuality": {
+          "score": 4.5,
+          "reason": "有 SKILL.md 模板（init_skill.py 生成）；有 3 种设计模式（guide/domain/conditional）；有输出模式参考；有质量自检清单（12 项）",
+          "userReason": "模板和模式可以直接参考"
+        },
+        "antiPatternFaq": {
+          "score": 4.5,
+          "reason": "有 Gotchas 必写要求（ROI 最高的单项改进）；有不应包含文件列表；有质量自检清单",
+          "userReason": "有必写 Gotchas 要求和质量清单"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "创建流程准确；内容完整覆盖 skill 创建全流程；开箱即用度好；设计模式有增值",
+      "userReason": "按流程操作就能创建 skill，设计模式有参考价值",
+      "items": {
+        "accuracy": {
+          "score": 4.0,
+          "reason": "创建流程准确；模板格式规范；但 SKILL.md 中 PowerShell 残留代码影响可信度",
+          "userReason": "流程准确，但残留代码影响观感"
+        },
+        "completeness": {
+          "score": 4.5,
+          "reason": "覆盖理解→规划→初始化→编辑→打包→迭代全链路；有设计模式和 Gotchas 要求",
+          "userReason": "从创建到打包全部覆盖"
+        },
+        "usability": {
+          "score": 4.0,
+          "reason": "init_skill.py 可直接运行；模板自动生成；但依赖 ~/.qclaw/skills 特定路径",
+          "userReason": "脚本可以直接运行，但需要特定目录"
+        },
+        "creativity": {
+          "score": 4.0,
+          "reason": "渐进式披露设计原则（3 种模式）有增值；Gotchas 必写要求有独到见解；质量自检清单实用",
+          "userReason": "设计模式和 Gotchas 要求是额外亮点"
+        }
+      }
+    }
+  },
+  "summary": "qclaw-skill-creator-pro 是 skill 创建的方法论指南，6 步流程 + 设计模式 + Gotchas 必写要求。3 个 Python 脚本功能完善。主要问题：SKILL.md 第 36-75 行有 PowerShell 调试残留代码（$content -replace），严重影响可信度，必须清理。与 skill-creator-1 功能重叠，建议合并或明确分工。",
+  "userSummary": "Skill 创建的方法论指南，流程清晰，有设计模式和模板。脚本可以直接运行。主要问题：文档中有开发残留代码需要清理，影响可信度。"
+}

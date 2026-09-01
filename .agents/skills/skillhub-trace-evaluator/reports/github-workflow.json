@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "完全中文交互；依赖 git 和 gh CLI 可直接访问；适配 Linux/macOS（bash 脚本）；Windows 需 Git Bash",
+      "userReason": "全中文阅读，工具链直接可用",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 4.5,
+          "reason": "SKILL.md 全中文；git/gh CLI 可直接访问；bash 脚本兼容 Git Bash；国内网络有代理方案（同 github-ops）",
+          "userReason": "中文体验好，工具链直接可用"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "4 个 bash 脚本均有 set -euo pipefail 严格模式；safe-merge.sh 有 4 项安全检查；validate 脚本有正则校验；但 11 章与 12 章脚本内容重复",
+      "userReason": "脚本稳定有严格模式，但部分内容重复",
+      "items": {
+        "stability": {
+          "score": 4.0,
+          "reason": "脚本有 set -euo pipefail、参数校验、错误退出码；safe-merge.sh 有冲突预检和 CI 状态检查；但部分脚本依赖 gh CLI",
+          "userReason": "脚本有严格错误处理，运行稳定"
+        },
+        "func": {
+          "score": 5.0,
+          "reason": "核心功能完整：分支命名检查、commit message 校验、安全合并检查、hooks 安装；支持 Husky + commitlint 完整配置；有 git-chglog 集成",
+          "userReason": "分支管理各种检查全部覆盖，脚本拿来就能用"
+        },
+        "errorHandling": {
+          "score": 4.5,
+          "reason": "有 6 种错误处理场景（merge conflict/push 被拒/rebase 冲突/误删分支/撤销 commit/squash）；脚本有友好错误提示和退出码",
+          "userReason": "常见错误有清晰的处理步骤"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "能力边界清晰（支持 5 种分支策略 + 不支持 5 类场景）；触发示例丰富（10 个）；有工作流决策树帮助选择策略",
+      "userReason": "有决策树帮助选择分支策略，触发词覆盖全面",
+      "items": {
+        "boundary": {
+          "score": 5.0,
+          "reason": "明确列出支持的 5 种分支策略和 unsupported 的 5 类场景（GitLab/Monorepo/semantic-release/GHE Server/大规模权限）；有工作流决策树",
+          "userReason": "有决策树帮助选择适合的分支策略"
+        },
+        "trigger": {
+          "score": 5.0,
+          "reason": "description 含 10 个触发示例（release 分支/merge conflict/撤销 commit/分支保护/fork 同步/分支命名/commitlint/多环境/changelog）；有快速定位表",
+          "userReason": "各种分支管理场景都能匹配到"
+        }
+      }
+    },
+    "convention": {
+      "reason": "渐进式披露优秀（快速入门→问题定位→决策树→分支体系→命令→命名→Commit→PR→流程→保护→CODEOWNERS→错误处理→反模式→工具→脚本→工作流→边界）；结构清晰；文档质量高",
+      "userReason": "从入门到精通分层清晰，有决策树和快速定位表",
+      "items": {
+        "progressive": {
+          "score": 5.0,
+          "reason": "从 5 分钟快速入门→问题定位表→决策树→完整分支体系→命令速查→错误处理→自动化工具→脚本→组合工作流，层次分明",
+          "userReason": "新手可以先看快速入门，需要时再深入"
+        },
+        "structure": {
+          "score": 4.0,
+          "reason": "15 章 + 目录 + 快速入门 + 问题定位表，导航极佳；但 1445 行体积过大，11 章与 12 章脚本内容重复",
+          "userReason": "结构清晰有导航，但内容偏多有部分重复"
+        },
+        "docQuality": {
+          "score": 5.0,
+          "reason": "有大量完整操作示例（功能分支创建→PR→合并全流程、Fork 协作、Release 分支管理、Hotfix 管理）；有输出样例（commitlint 成功/失败）",
+          "userReason": "操作步骤完整，可以直接跟着做"
+        },
+        "antiPatternFaq": {
+          "score": 5.0,
+          "reason": "10 条反模式（直接 main 开发/force push/长期分支等）；FAQ 含 8 个高频问题（撤销 push /commit 合并/分支差异等）",
+          "userReason": "常见错误有提示，FAQ 解答了疑惑"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "操作准确可执行；内容完整覆盖分支管理全场景；开箱即用度高；多环境策略有增值",
+      "userReason": "按步骤操作就能完成分支管理，全流程覆盖",
+      "items": {
+        "accuracy": {
+          "score": 4.5,
+          "reason": "命令格式规范、脚本可直接执行；但 11 章与 12 章脚本重复出现，可能造成维护负担",
+          "userReason": "命令和脚本可以直接使用"
+        },
+        "completeness": {
+          "score": 5.0,
+          "reason": "覆盖分支创建→命名→Commit→PR→保护→CODEOWNERS→错误恢复→自动化→多环境→发布管理全链路",
+          "userReason": "分支管理全部覆盖，不需要额外查资料"
+        },
+        "usability": {
+          "score": 4.5,
+          "reason": "有决策树帮助选择策略；脚本可直接集成 Husky；文档与行为一致",
+          "userReason": "决策树帮助选择，脚本直接集成"
+        },
+        "creativity": {
+          "score": 4.0,
+          "reason": "多环境分支策略（dev/staging/prod）有实用价值；git-chglog 集成方案完整；safe-merge.sh 的 CI 状态检查有独到之处",
+          "userReason": "多环境策略和自动 changelog 是额外亮点"
+        }
+      }
+    }
+  },
+  "summary": "github-workflow 是分支管理的终极指南，15 章 + 决策树 + 快速定位表导航极佳。4 个 bash 脚本功能完善，有严格错误处理。主要问题：1445 行体积过大，11 章与 12 章脚本内容重复（同一脚本出现两次）。建议将脚本只放 12 章，11 章引用路径；将组合工作流拆到 references/。",
+  "userSummary": "分支管理的百科全书，有决策树帮助选择策略，操作步骤完整。脚本可以直接集成到 Git hooks。全中文阅读。内容偏多有部分重复，但不影响整体价值。"
+}

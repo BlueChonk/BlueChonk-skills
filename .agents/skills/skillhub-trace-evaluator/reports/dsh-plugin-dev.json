@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "完全中文交互；依赖 GitHub 和 npm 可直接访问；适配 Windows/Linux 双平台；国内网络问题有代理方案",
+      "userReason": "全中文阅读无障碍，国内外工具链都能用，网络问题也有解决办法",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 4.5,
+          "reason": "SKILL.md 全中文，含 7 个中文触发示例；脚本支持 Windows PowerShell；国内网络问题有 ghproxy 镜像方案；但部分依赖（npm install @deepseek-ai/*）需 npm 注册表可达",
+          "userReason": "中文体验很好，国内外环境都考虑到了，偶尔需要配置代理"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "3 个 PowerShell 脚本均有参数校验和错误处理；fetch-docs.ps1 有重试机制；test-plugin-load.ps1 有端口检测和 HTTP 验证；但 new-plugin.ps1 路径参数与 SKILL.md 反模式自相矛盾",
+      "userReason": "脚本稳定性好，有重试和验证机制，但快速入门示例中路径写法与自身反模式冲突",
+      "items": {
+        "stability": {
+          "score": 4.0,
+          "reason": "fetch-docs.ps1 有 Invoke-WithRetry 重试机制（默认 3 次）；test-plugin-load.ps1 有端口+HTTP 三层检测；new-plugin.ps1 有 $ErrorActionPreference = 'Stop' 和目录存在检查",
+          "userReason": "脚本有重试和验证，运行稳定，但快速入门中硬编码路径与反模式矛盾"
+        },
+        "func": {
+          "score": 4.5,
+          "reason": "核心功能完整：项目生成（new-plugin）、文档获取（fetch-docs）、加载验证（test-plugin-load）；支持参数化；有默认值处理",
+          "userReason": "三个脚本各司其职，能自动生成项目、获取文档、验证加载，功能完善"
+        },
+        "errorHandling": {
+          "score": 4.0,
+          "reason": "SKILL.md 有完整错误码对照表（加载失败/工具调用失败/HMR 失败/发布失败四类）；脚本有 try/catch 和 Write-Warn；但 fetch-docs.ps1 部分错误场景未覆盖",
+          "userReason": "错误提示清晰，有对照表可排查，脚本也有友好的警告信息"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "能力边界清晰（明确列出不覆盖的 5 类内容）；触发示例丰富（7 个场景）；输入输出约束明确",
+      "userReason": "知道什么时候该用、什么时候不该用，触发词覆盖开发全流程",
+      "items": {
+        "boundary": {
+          "score": 5.0,
+          "reason": "明确列出不覆盖的 5 类内容（Cordis 框架原理/插件市场审核/高级 TS 类型/底层 Node 调试/插件 UI 开发）；有开发前检查清单；有输入输出约束",
+          "userReason": "能做什么、不能做什么一目了然，不会误用"
+        },
+        "trigger": {
+          "score": 5.0,
+          "reason": "description 含 7 个触发示例（创建插件/加载失败/HMR 调试/插件与 skill 区别/发布 npm/性能优化/v1 迁移 v2）；条件清晰无歧义",
+          "userReason": "触发词覆盖了从创建到发布的全场景，很容易匹配到"
+        }
+      }
+    },
+    "convention": {
+      "reason": "渐进式披露优秀（5 分钟入门 → 完整指南 → 测试 → CI/CD → 安全）；结构清晰（10+ 章节）；文档质量高（大量代码示例和输出样例）；反模式 7 条 + FAQ 丰富",
+      "userReason": "从入门到精通分层清晰，有大量可复制代码和输出示例，反模式帮助避坑",
+      "items": {
+        "progressive": {
+          "score": 5.0,
+          "reason": "从 5 分钟快速入门 → 完整开发指南 → 测试 → CI/CD → 安全 → 迁移，层次分明；可按需深入",
+          "userReason": "新手可以先 5 分钟跑起来，需要时再深入，不会信息过载"
+        },
+        "structure": {
+          "score": 4.5,
+          "reason": "10+ 章节，有文档索引表、开发前检查清单、核心包列表、最佳实践速查表；模块清晰",
+          "userReason": "结构清晰，有索引表和速查表，方便快速定位"
+        },
+        "docQuality": {
+          "score": 5.0,
+          "reason": "大量可直接复制的代码示例（src/index.ts、cordis.patch.yml、package.json、vitest 配置）；有输出样例（控制台日志、HMR 日志）；有真实项目参考",
+          "userReason": "代码示例可以直接复制使用，输出样例帮助确认是否正确"
+        },
+        "antiPatternFaq": {
+          "score": 5.0,
+          "reason": "7 大反模式（硬编码路径/忽略版本兼容/阻塞操作/忘记依赖声明/普通对象 Schema/忘记 next()/手动清理）；FAQ 覆盖调试/测试/发布/Git 安装/HMR/通信等",
+          "userReason": "反模式帮助避免常见错误，FAQ 解答了使用中的疑惑"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "输出准确性高（代码可直接运行）；内容完整度优秀（从创建到发布全覆盖）；开箱即用度好（脚本直接可用）；创造力有亮点（安全最佳实践、性能优化指南）",
+      "userReason": "按步骤操作就能跑起来，全流程都有指导，还有安全和性能方面的额外价值",
+      "items": {
+        "accuracy": {
+          "score": 4.5,
+          "reason": "代码示例格式规范、语义精准；但快速入门步骤 1 中硬编码路径 $env:USERPROFILE\\my-first-plugin 与反模式矛盾",
+          "userReason": "代码可以直接复制运行，但有个别示例与自身规范矛盾"
+        },
+        "completeness": {
+          "score": 5.0,
+          "reason": "覆盖创建→编写→调试→测试→CI/CD→发布→安全→迁移→性能优化全链路；有单元测试和集成测试方案",
+          "userReason": "从写第一行代码到发布上线全部覆盖，不需要额外查资料"
+        },
+        "usability": {
+          "score": 4.5,
+          "reason": "调用流程顺畅；脚本参数与返回符合预期；文档与行为基本一致（除路径硬编码问题）",
+          "userReason": "按文档操作能顺利完成，脚本参数设计合理"
+        },
+        "creativity": {
+          "score": 4.0,
+          "reason": "安全最佳实践（输入校验/权限控制/敏感信息保护）有额外价值；性能优化指南（懒加载/代码分割/缓存）有独到见解；版本迁移指南实用",
+          "userReason": "除了基础开发指导，还有安全和性能方面的增值内容"
+        }
+      }
+    }
+  },
+  "summary": "dsh-plugin-dev 是 DSH 插件开发的全链路指南，从 5 分钟快速入门到发布上线全覆盖。结构清晰，渐进式披露设计优秀，大量可直接复制的代码示例和输出样例。3 个 PowerShell 脚本功能完善，有重试和验证机制。主要问题：快速入门步骤中的硬编码路径与自身反模式矛盾（SKILL.md 第 704 行反模式示例正确，但第 27 行快速入门使用了硬编码路径）。建议将端到端案例和测试部分拆到 references/ 以精简主体（当前 1077 行）。",
+  "userSummary": "插件开发的百科全书，从创建到发布全流程指导。代码示例可以直接复制运行，反模式和 FAQ 帮助避坑。全中文阅读无障碍。唯一小问题是快速入门示例中路径写法与自身规范矛盾，但不影响整体使用价值。"
+}

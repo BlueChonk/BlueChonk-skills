@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "完全中文交互；无外部服务依赖；纯 Markdown 无需网络访问；适配所有平台",
+      "userReason": "全中文阅读，不需要联网，任何平台都能用",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 5.0,
+          "reason": "SKILL.md 全中文；无外部服务依赖；纯文档型 skill 无需 API 调用；适配所有平台",
+          "userReason": "完全中文，不需要联网，随时随地可用"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "纯文档型 skill 无脚本执行；模板内容稳定一致；脱敏规范有明确检查清单",
+      "userReason": "文档内容稳定可靠，模板可以反复使用",
+      "items": {
+        "stability": {
+          "score": 4.0,
+          "reason": "纯 Markdown 无脚本，不存在运行崩溃问题；模板内容固定不变；但无重试机制（不需要）",
+          "userReason": "文档不会出错，模板可以反复使用"
+        },
+        "func": {
+          "score": 4.5,
+          "reason": "核心功能完整：README/CONTRIBUTING/CHANGELOG 模板、脱敏规范、质量检查清单、文档债务检测、自动化工具推荐",
+          "userReason": "从写文档到检查质量全部覆盖，模板拿来就能用"
+        },
+        "errorHandling": {
+          "score": 3.5,
+          "reason": "有文档质量故障排查表（6 种常见问题诊断）；有自评问卷（10 题）；但无脚本层面的错误处理",
+          "userReason": "文档质量问题有排查方法，但主要是人工检查"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "适用范围明确（个人及小型团队 GitHub 项目）；不覆盖范围清晰（API 文档/GitHub Pages/CI/CD 文档等 6 类）；触发场景丰富",
+      "userReason": "知道什么场景能用、什么场景不该用",
+      "items": {
+        "boundary": {
+          "score": 5.0,
+          "reason": "明确列出覆盖范围（5 类）和不覆盖范围（6 类含 API 文档/GitHub Pages/CI/CD/技术白皮书/法律文档/学术论文）；有判断标准",
+          "userReason": "能处理什么、不能处理什么写得很清楚"
+        },
+        "trigger": {
+          "score": 5.0,
+          "reason": "description 含 6 个触发场景（新建仓库/话题标签/敏感信息/CONTRIBUTING/审查质量/多语言）；条件清晰",
+          "userReason": "触发词覆盖了文档维护的各种场景"
+        }
+      }
+    },
+    "convention": {
+      "reason": "渐进式披露良好（语言优先级→标签→README→CONTRIBUTING→CHANGELOG→脱敏→质量检查→故障排查→最佳实践→多语言→文档即代码）；结构清晰；模板丰富；反模式和 FAQ 齐全",
+      "userReason": "从基础到进阶分层清晰，模板可以直接复制",
+      "items": {
+        "progressive": {
+          "score": 4.5,
+          "reason": "从语言优先级→标签规范→README 模板→CONTRIBUTING→CHANGELOG→脱敏→质量检查→故障排查→最佳实践→多语言→文档即代码，层次分明",
+          "userReason": "可以先看基础模板，需要时再深入自动化工具"
+        },
+        "structure": {
+          "score": 4.5,
+          "reason": "11 章 + 附录速查表；有目录导航；模块划分合理",
+          "userReason": "章节清晰，有目录和速查表，方便定位"
+        },
+        "docQuality": {
+          "score": 5.0,
+          "reason": "README 模板（含完整 markdown）、CONTRIBUTING 模板、CHANGELOG 模板；有真实项目参考（vscode/react/next.js）；有脱敏示例；有质量自评问卷",
+          "userReason": "模板直接复制就能用，还有真实项目参考"
+        },
+        "antiPatternFaq": {
+          "score": 4.5,
+          "reason": "标签反模式（5 组错误/正确对比）；文档债务处理策略；FAQ 含 9 个高频问题；文档质量故障排查表",
+          "userReason": "常见错误有对比示例，FAQ 解答了疑惑"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "模板准确规范；内容完整度高；开箱即用；文档即代码实践方案有增值",
+      "userReason": "模板拿来就能用，文档质量检查方法实用",
+      "items": {
+        "accuracy": {
+          "score": 4.5,
+          "reason": "模板格式规范、语义精准；脱敏示例正确；质量检查清单完整",
+          "userReason": "模板可以直接使用，格式标准"
+        },
+        "completeness": {
+          "score": 4.5,
+          "reason": "覆盖文档创建→维护→质量检查→故障排查→自动化工具→多语言→文档即代码全流程",
+          "userReason": "从写文档到检查质量全部覆盖"
+        },
+        "usability": {
+          "score": 4.5,
+          "reason": "模板可直接复制；检查清单可逐项对照；自评问卷可量化评分",
+          "userReason": "模板复制粘贴就能用，检查清单方便自查"
+        },
+        "creativity": {
+          "score": 4.0,
+          "reason": "文档债务检测方法（git log 对比）有独到价值；文档即代码实践方案有增值；自动化工具推荐实用",
+          "userReason": "文档债务检测和自动化工具推荐是额外亮点"
+        }
+      }
+    }
+  },
+  "summary": "github-doc-standards 是 GitHub 项目文档规范的全面指南，从语言优先级到文档即代码实践全覆盖。模板丰富且可直接复制，质量检查清单和自评问卷实用。渐进式披露设计良好，适用范围边界清晰。主要不足：583 行偏长，建议将 README/CONTRIBUTING/CHANGELOG 模板拆到 references/ 以精简主体。纯文档型 skill 在 reliability 维度天然受限。",
+  "userSummary": "文档规范的标杆，模板拿来就能用，质量检查清单帮助自查。全中文阅读，不需要联网。从写 README 到检查文档质量全部覆盖，文档债务检测方法是额外亮点。"
+}

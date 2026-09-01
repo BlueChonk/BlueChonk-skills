@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "完全中文交互（含英文 Musk/Jobs/Amazon 味）；无外部服务依赖；纯文档型 + references；适配所有平台",
+      "userReason": "全中文阅读，不需要联网，任何平台可用",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 5.0,
+          "reason": "SKILL.md 全中文；14 种大厂味道有中文翻译；无外部服务依赖；纯文档型 skill",
+          "userReason": "完全中文，不需要联网"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "纯文档型 skill 无脚本执行；行为协议和方法论路由逻辑清晰；但旁白示范和关键词表占大量篇幅，实际行为约束较少",
+      "userReason": "文档内容稳定，但大量篇幅用于旁白示范",
+      "items": {
+        "stability": {
+          "score": 3.5,
+          "reason": "纯 Markdown 无脚本，不存在运行崩溃；行为协议（三条红线/诊断先行/核心行为）逻辑清晰；但旁白密度协议和味道切换逻辑复杂，实际执行一致性存疑",
+          "userReason": "文档不会出错，但旁白和味道切换逻辑较复杂"
+        },
+        "func": {
+          "score": 3.5,
+          "reason": "核心功能：方法论智能路由（12 种任务类型→味道映射）、压力升级（L0-L4）、突破降压、深层换框、失败模式分析；但大量篇幅用于旁白示范（flavors.md 388 行），实际行为约束较少",
+          "userReason": "方法论路由有趣，但大量篇幅用于旁白示范"
+        },
+        "errorHandling": {
+          "score": 4.0,
+          "reason": "有失败模式分析（SPINNING/EXPLORING/MIXED）；有抗合理化表（12 种借口→反击）；有 7 项检查清单（L3+ 强制完成）；有通用方法论 5 步",
+          "userReason": "失败时有明确的分析框架和应对策略"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "能力边界独特（PUA 生产力教练）；触发词丰富（中英文）；但适用场景主观性强",
+      "userReason": "触发词丰富，但是否需要 PUA 因人而异",
+      "items": {
+        "boundary": {
+          "score": 4.0,
+          "reason": "有 8 条 Gotchas（已知陷阱）；有 Harness 防作弊治理协议；但能力边界描述偏模糊（主要靠触发词暗示）",
+          "userReason": "有使用陷阱提示，但能力边界不够清晰"
+        },
+        "trigger": {
+          "score": 5.0,
+          "reason": "description 触发词极其丰富（try harder/stop giving up/figure it out/again??/为什么还不行/又错了/证据呢/没跑测试别说完成/验收/闭环/自嗨 等）；中英文覆盖",
+          "userReason": "各种挫折和被动场景都能匹配到"
+        }
+      }
+    },
+    "convention": {
+      "reason": "渐进式披露一般（结构偏复杂）；references 丰富（6 个）；文档质量中等（大量旁白示范重复）；反模式和 FAQ 有但分散",
+      "userReason": "结构较复杂，大量旁白示范有重复感",
+      "items": {
+        "progressive": {
+          "score": 3.0,
+          "reason": "结构偏复杂：三条红线→诊断协议→行为协议→旁白协议→Owner 意识→能动性等级→压力升级→降压协议→换框→失败模式→方法论→生命周期→反馈；层次多但递进关系不强",
+          "userReason": "结构较复杂，层次多但递进关系不强"
+        },
+        "structure": {
+          "score": 3.5,
+          "reason": "428 行 + 6 个 references；有目录但结构偏复杂；味道速查表重复出现两次（SKILL.md 内 + flavors.md）",
+          "userReason": "有目录但结构偏复杂，部分内容重复"
+        },
+        "docQuality": {
+          "score": 3.5,
+          "reason": "有输出样例（Sprint Banner/进度条/KPI 卡/压力升级）；但大量篇幅用于旁白示范（14 种味道各 2-3 句），实际用例不足",
+          "userReason": "有输出样例，但大量篇幅用于旁白示范"
+        },
+        "antiPatternFaq": {
+          "score": 4.0,
+          "reason": "有 8 条 Gotchas（行为错误 + 使用陷阱）；有抗合理化表（12 种借口）；有 Harness 防作弊治理",
+          "userReason": "常见错误有提示"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "方法论路由有创意；但实际行为约束 ROI 偏低；大量篇幅用于旁白示范；反馈收集机制有增值",
+      "userReason": "方法论路由有趣，但实际效果因人而异",
+      "items": {
+        "accuracy": {
+          "score": 3.5,
+          "reason": "方法论路由逻辑清晰；旁白示范格式规范；但 PUA 效果主观性强，难以量化准确性",
+          "userReason": "方法论有趣，但效果因人而异"
+        },
+        "completeness": {
+          "score": 4.0,
+          "reason": "覆盖任务接取→执行→交付→复盘全生命周期；有反馈收集机制（AskUserQuestion）；有失败模式分析",
+          "userReason": "任务全流程覆盖，有反馈收集"
+        },
+        "usability": {
+          "score": 3.5,
+          "reason": "触发方式明确；但味道切换逻辑复杂，需要 SessionStart hook 配合；部分功能依赖 hook 注入",
+          "userReason": "触发明确，但味道切换较复杂"
+        },
+        "creativity": {
+          "score": 5.0,
+          "reason": "14 种大厂味道 + 方法论智能路由 + 失败切换链 + 深层换框 + Harness 防作弊治理，创意十足",
+          "userReason": "14 种大厂味道和方法论路由非常有创意"
+        }
+      }
+    }
+  },
+  "summary": "pua 是独特的'大厂 PUA'生产力教练 skill，14 种味道 + 方法论智能路由 + 失败切换链创意十足。触发词丰富，反馈收集机制有增值。主要问题：428 行中大量篇幅用于旁白示范（flavors.md 388 行），实际行为约束 ROI 偏低；结构偏复杂，层次多但递进关系不强；味道速查表重复出现。适合娱乐和探索，生产实用性有限。",
+  "userSummary": "非常有创意的 PUA 教练，14 种大厂味道和方法论路由有趣。触发词丰富，反馈收集机制有增值。但大量篇幅用于旁白示范，实际行为约束较少，效果因人而异。适合娱乐和探索。"
+}

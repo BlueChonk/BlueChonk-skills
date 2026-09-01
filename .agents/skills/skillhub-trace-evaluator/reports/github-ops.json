@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "完全中文交互；依赖 GitHub API 和 gh CLI 可直接访问；国内网络有代理方案；适配 Windows/Linux/macOS",
+      "userReason": "全中文阅读，国内外网络环境都有解决方案",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 4.5,
+          "reason": "SKILL.md 全中文；gh CLI 和 GitHub API 可直接访问；国内网络有 4 种代理方案（HTTP 代理/ghproxy/git 代理/取消代理）；适配多平台",
+          "userReason": "中文体验好，国内网络不稳定时有多种解决方案"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "5 个 bash 脚本均有 set -euo pipefail 严格模式和参数校验；命令速查表覆盖全场景；有速率限制处理和重试逻辑",
+      "userReason": "脚本稳定有严格模式，命令覆盖面广",
+      "items": {
+        "stability": {
+          "score": 4.0,
+          "reason": "脚本有 set -euo pipefail、参数校验、操作前确认；有速率限制查看和 API 缓存；但部分脚本依赖 gh CLI 安装",
+          "userReason": "脚本有严格错误处理，运行稳定"
+        },
+        "func": {
+          "score": 5.0,
+          "reason": "核心功能完整：认证/仓库/Issue/PR/Actions/Release/Gist/SSH Key 全覆盖；有组合工作流（init-repo/pr-flow/release/close-issues/sync-fork）；有 Actions 模板",
+          "userReason": "GitHub 各种操作全部覆盖，脚本拿来就能用"
+        },
+        "errorHandling": {
+          "score": 5.0,
+          "reason": "有 10 种常见错误对照表（含原因和解决方案）；有 7 步排查步骤；Token 权限对照表；jq 错误处理示例",
+          "userReason": "出错时有清晰的对照表和排查步骤"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "能力边界清晰（支持 8 类功能 + 不支持 5 类场景）；触发词覆盖所有 GitHub 操作；输入输出约束明确",
+      "userReason": "知道什么操作支持、什么不支持，触发词覆盖全面",
+      "items": {
+        "boundary": {
+          "score": 5.0,
+          "reason": "明确列出支持的 8 类功能和 unsupported 的 5 类场景（GHE 特殊配置/仓库删除/Branch Protection/组织设置/大文件上传）；有替代方案",
+          "userReason": "能做什么、不能做什么一目了然"
+        },
+        "trigger": {
+          "score": 5.0,
+          "reason": "description 触发词覆盖创建仓库/提交 PR/查看 CI/创建 release/批量处理 issue/查看 workflow 日志/fork 同步/branch protection 等",
+          "userReason": "各种 GitHub 操作场景都能匹配到"
+        }
+      }
+    },
+    "convention": {
+      "reason": "渐进式披露优秀（能力边界→前置检查→命令速查→组合工作流→Actions 模板→Issue/PR 模板→速率限制→错误处理→反模式→最佳实践）；结构清晰；文档质量高",
+      "userReason": "从基础命令到高级工作流分层清晰，有大量输出样例",
+      "items": {
+        "progressive": {
+          "score": 5.0,
+          "reason": "从能力边界→前置检查→命令速查→组合工作流→Actions 模板→模板→速率限制→错误处理→反模式→最佳实践，层次分明",
+          "userReason": "可以先查命令速查表，需要时再看组合工作流"
+        },
+        "structure": {
+          "score": 4.5,
+          "reason": "10 章结构清晰；命令速查表按类别分组；有输出样例",
+          "userReason": "章节清晰，命令速查表方便快速查找"
+        },
+        "docQuality": {
+          "score": 5.0,
+          "reason": "每个命令有输出样例（gh repo view/gh issue list/gh pr view/gh run list/gh release list）；有完整 PR 工作流脚本；有 Issue/PR 模板",
+          "userReason": "每个命令都有输出示例，方便确认结果"
+        },
+        "antiPatternFaq": {
+          "score": 5.0,
+          "reason": "10 条反模式（硬编码 token/忽略 rate limit/用 curl/不检查返回值等）；FAQ 含 8 个高频问题（切换账户/调试 api/批量操作/GraphQL 等）",
+          "userReason": "常见错误有提示，FAQ 解答了使用中的疑惑"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "命令准确可用；内容完整覆盖 GitHub 全场景；开箱即用度高；安全规范有增值",
+      "userReason": "命令直接复制就能用，GitHub 各种操作全覆盖",
+      "items": {
+        "accuracy": {
+          "score": 5.0,
+          "reason": "命令格式规范、语义精准；输出样例真实；脚本可直接执行",
+          "userReason": "命令可以直接复制执行"
+        },
+        "completeness": {
+          "score": 5.0,
+          "reason": "覆盖认证→仓库→Issue→PR→Actions→Release→Gist→SSH Key→API→速率限制→错误处理全链路",
+          "userReason": "GitHub 各种操作全部覆盖，不需要额外查资料"
+        },
+        "usability": {
+          "score": 4.5,
+          "reason": "命令速查表方便快速查找；脚本可直接执行；文档与行为一致",
+          "userReason": "速查表方便查找，脚本直接能用"
+        },
+        "creativity": {
+          "score": 4.0,
+          "reason": "安全规范（不硬编码 token/最小权限/定期轮换）有增值；国内网络方案贴心；组合工作流设计实用",
+          "userReason": "安全规范和网络方案是额外亮点"
+        }
+      }
+    }
+  },
+  "summary": "github-ops 是 gh CLI 的百科全书级 skill，从命令速查到组合工作流全覆盖。命令速查表 + 输出样例的设计极佳，5 个 bash 脚本可直接执行。错误处理完善（10 种错误对照表 + 7 步排查），反模式和 FAQ 丰富。982 行偏长，建议将组合工作流和 Actions 模板拆到 references/。",
+  "userSummary": "GitHub 操作的全能手册，命令速查表方便快速查找，每个命令都有输出示例。脚本可以直接执行，错误处理完善。全中文阅读，国内网络有解决方案。"
+}

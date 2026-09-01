@@ -1,0 +1,68 @@
+# Mihomo Meta 配置文件
+# 文档: https://wiki.metacubex.one/
+
+# 混合端口（HTTP + SOCKS5）
+mixed-port: 7897
+
+# 是否允许局域网连接
+allow-lan: false
+bind-address: '*'
+
+# 运行模式: rule / global / direct
+mode: rule
+
+# 日志级别: silent / error / warning / info / debug
+log-level: info
+
+# 是否启用 IPv6
+ipv6: false
+
+# 外部控制器（API）
+external-controller: 127.0.0.1:9090
+external-ui: ui
+
+# 认证密钥（建议设置）
+secret: ""
+
+# 禁用 GeoIP 自动下载（避免首次启动时 MMDB 下载阻塞）
+geodata-mode: false
+geo-auto-update: false
+geo-update-interval: 24
+
+# ===== 订阅源 =====
+# 将订阅 URL 替换为你的机场订阅地址
+proxy-providers:
+  my-airplane:
+    type: http
+    url: "https://example.com/sub?token=your-token"
+    interval: 3600
+    path: ./proxy-providers/my-airplane.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+
+# ===== 代理组 =====
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    use:
+      - my-airplane
+
+  - name: "AUTO"
+    type: url-test
+    use:
+      - my-airplane
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+
+# ===== 规则 =====
+rules:
+  - DOMAIN-SUFFIX,local,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,100.64.0.0/10,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY

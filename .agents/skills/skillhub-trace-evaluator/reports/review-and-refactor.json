@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "全英文；无外部服务依赖；纯文档型 skill；适配所有平台",
+      "userReason": "不需要联网，任何平台可用，但内容为英文",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 2.0,
+          "reason": "SKILL.md 全英文，无中文支持；无外部服务依赖",
+          "userReason": "内容为英文，中文用户需要额外翻译"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "纯文档型 skill 无脚本执行；15 行过于简略；无具体方法论或检查清单",
+      "userReason": "文档内容稳定，但太少无法判断效果",
+      "items": {
+        "stability": {
+          "score": 2.0,
+          "reason": "纯 Markdown 无脚本；15 行内容过于简略，无法验证实际效果",
+          "userReason": "内容太少，无法判断实际效果"
+        },
+        "func": {
+          "score": 1.0,
+          "reason": "仅 4 行任务描述（review guidelines + refactor + don't split + ensure tests pass）；无具体审查维度、重构策略、输出格式定义；核心功能缺失",
+          "userReason": "只有简单描述，没有实际功能"
+        },
+        "errorHandling": {
+          "score": 1.0,
+          "reason": "无任何错误处理指导；无故障排查；无边界情况说明",
+          "userReason": "出错时没有排查方法"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "无能力边界说明；触发方式简单；适用语言和范围完全模糊",
+      "userReason": "不知道具体支持什么，触发方式简单",
+      "items": {
+        "boundary": {
+          "score": 1.0,
+          "reason": "未列出任何能力边界；未说明支持的语言/框架；未说明输入输出约束",
+          "userReason": "不知道能做什么、不能做什么"
+        },
+        "trigger": {
+          "score": 2.0,
+          "reason": "description 仅一句话（'Review and refactor code in your project according to defined instructions'）；无触发示例",
+          "userReason": "触发方式不明确"
+        }
+      }
+    },
+    "convention": {
+      "reason": "无渐进式披露；无结构；无用例；无反模式或 FAQ",
+      "userReason": "内容平铺直叙，没有示例和 FAQ",
+      "items": {
+        "progressive": {
+          "score": 1.0,
+          "reason": "15 行平铺直叙，无任何层次递进",
+          "userReason": "信息堆砌，没有层次"
+        },
+        "structure": {
+          "score": 1.0,
+          "reason": "无目录、无章节、无模块；仅 Role + Task 两部分",
+          "userReason": "没有结构，找不到关键内容"
+        },
+        "docQuality": {
+          "score": 1.0,
+          "reason": "无任何代码示例、输出样例或真实项目参考",
+          "userReason": "没有任何可以使用或参考的示例"
+        },
+        "antiPatternFaq": {
+          "score": 1.0,
+          "reason": "无任何反模式说明或 FAQ",
+          "userReason": "没有常见错误提示"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "任务描述正确但过于简略；缺乏实际可执行内容；开箱即用度极低；无创新",
+      "userReason": "内容正确但太少，实际没有帮助",
+      "items": {
+        "accuracy": {
+          "score": 2.0,
+          "reason": "任务描述正确（review + refactor + don't split + test pass），但缺乏具体方法论",
+          "userReason": "描述正确，但没有实际内容"
+        },
+        "completeness": {
+          "score": 1.0,
+          "reason": "仅 4 行任务描述；无审查维度、重构策略、输出格式、检查清单",
+          "userReason": "内容严重不足"
+        },
+        "usability": {
+          "score": 1.0,
+          "reason": "无法直接调用产生价值；需要用户自己定义所有审查标准",
+          "userReason": "不能直接用，需要自己补充所有内容"
+        },
+        "creativity": {
+          "score": 1.0,
+          "reason": "无任何额外洞察或创新方案",
+          "userReason": "没有额外价值"
+        }
+      }
+    }
+  },
+  "summary": "review-and-refactor 严重欠开发，仅 15 行（4 行任务描述），无具体审查维度、重构策略、输出格式、检查清单、示例、FAQ、反模式。当前状态为纯粹 placeholder，实际使用价值极低。建议大幅扩展（参考 security-review 的方法论深度）或合并到其他 skill。",
+  "userSummary": "内容严重不足，只有简单描述没有实际功能。需要自己定义所有审查标准，帮助有限。建议重写或合并到其他 skill。"
+}

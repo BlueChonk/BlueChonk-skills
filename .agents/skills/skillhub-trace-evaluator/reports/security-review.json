@@ -1,0 +1,111 @@
+{
+  "dimensions": {
+    "trust": {
+      "reason": "全英文；无外部服务依赖；纯文档型 + references；适配所有平台",
+      "userReason": "不需要联网，任何平台可用，但内容为英文",
+      "items": {
+        "scan": {
+          "status": "skipped",
+          "reason": "本评测不做安全扫描，不评分",
+          "userReason": "未做安全扫描，此项跳过"
+        },
+        "domestic": {
+          "score": 2.0,
+          "reason": "SKILL.md 全英文，无中文支持；无外部服务依赖",
+          "userReason": "内容为英文，中文用户需要额外翻译"
+        }
+      }
+    },
+    "reliability": {
+      "reason": "8 步执行工作流逻辑严密；5 个 references 详细；自验证步骤减少误报；但纯文档型无脚本执行",
+      "userReason": "方法论严密，references 详细",
+      "items": {
+        "stability": {
+          "score": 4.0,
+          "reason": "8 步工作流（Scope→Dependency→Secrets→Vulnerability→DataFlow→SelfVerify→Report→Patch）逻辑严密；自验证步骤（Step 6）减少误报；但纯文档无脚本",
+          "userReason": "方法论严密，有自验证减少误报"
+        },
+        "func": {
+          "score": 5.0,
+          "reason": "核心功能完整：依赖审计、密钥扫描、漏洞深度扫描（注入/认证/数据/加密/业务逻辑）、跨文件数据流分析、自验证、报告生成、补丁提案；5 个 references 覆盖各方面",
+          "userReason": "安全扫描各种类型全部覆盖"
+        },
+        "errorHandling": {
+          "score": 4.5,
+          "reason": "自验证步骤（Step 6）要求重新检查每个发现；有严重等级指南（CRITICAL/HIGH/MEDIUM/LOW/INFO）；有输出规则（置信度评级、分组方式）",
+          "userReason": "有自验证和严重等级，错误处理完善"
+        }
+      }
+    },
+    "adaptability": {
+      "reason": "能力边界清晰（支持 8 种语言 + 多种漏洞类型）；触发词丰富；有范围解析策略",
+      "userReason": "知道支持什么语言、扫描什么漏洞，触发词覆盖全面",
+      "items": {
+        "boundary": {
+          "score": 5.0,
+          "reason": "明确列出支持的 8 种语言（JS/TS/Python/Java/PHP/Go/Ruby/Rust）；有范围解析策略（有路径→仅该范围，无路径→整个项目）；有输出规则",
+          "userReason": "支持什么语言、扫描范围写得很清楚"
+        },
+        "trigger": {
+          "score": 5.0,
+          "reason": "description 触发词覆盖 SQLi/XSS/命令注入/密钥泄露/CVE/审计等；有 /security-review slash command",
+          "userReason": "各种安全扫描场景都能匹配到"
+        }
+      }
+    },
+    "convention": {
+      "reason": "渐进式披露优秀（8 步工作流 + 5 个 references）；结构清晰；文档质量极高（references 详细）；有输出格式模板",
+      "userReason": "从范围确定到报告生成分层清晰，references 详细",
+      "items": {
+        "progressive": {
+          "score": 5.0,
+          "reason": "8 步工作流从 Scope→Dependency→Secrets→Vulnerability→DataFlow→SelfVerify→Report→Patch，层次分明；5 个 references 按需加载",
+          "userReason": "可以先看工作流，需要时再读 references"
+        },
+        "structure": {
+          "score": 5.0,
+          "reason": "168 行主体精简；5 个 references 索引清晰；有严重等级指南、输出规则、参考文件索引",
+          "userReason": "主体精简，详细检测指南在 references"
+        },
+        "docQuality": {
+          "score": 5.0,
+          "reason": "references 极其详细：vuln-categories.md（281 行，含检测信号+安全模式+升级检查器）、secret-patterns.md（178 行，含 regex 模式）、report-format.md（194 行，含报告模板）",
+          "userReason": "检测指南详细，有具体 regex 和模板"
+        },
+        "antiPatternFaq": {
+          "score": 3.5,
+          "reason": "有输出规则（Never auto-applied/Always include confidence）；但无反模式章节或 FAQ",
+          "userReason": "有输出规则，但缺少常见错误提示"
+        }
+      }
+    },
+    "effectiveness": {
+      "reason": "8 步工作流准确可执行；内容完整覆盖安全扫描全场景；开箱即用度高；自验证和跨文件数据流分析有增值",
+      "userReason": "按步骤操作就能完成安全扫描，自验证减少误报",
+      "items": {
+        "accuracy": {
+          "score": 5.0,
+          "reason": "8 步工作流格式规范、语义精准；references 含具体 regex 模式和检测信号；自验证步骤减少误报",
+          "userReason": "方法论严密，有具体检测模式，自验证减少误报"
+        },
+        "completeness": {
+          "score": 5.0,
+          "reason": "覆盖依赖审计→密钥扫描→漏洞扫描→跨文件数据流→自验证→报告→补丁全流程；支持 8 种语言",
+          "userReason": "安全扫描全部覆盖"
+        },
+        "usability": {
+          "score": 4.5,
+          "reason": "工作流清晰可执行；references 按需加载；报告格式模板完整",
+          "userReason": "按步骤操作就能完成"
+        },
+        "creativity": {
+          "score": 4.5,
+          "reason": "自验证步骤（Step 6）有独到价值；跨文件数据流分析（Step 5）超越单文件扫描；补丁提案（Step 8）实用",
+          "userReason": "自验证和跨文件分析是额外亮点"
+        }
+      }
+    }
+  },
+  "summary": "security-review 是安全审查的标杆 skill，8 步工作流逻辑严密，5 个 references 极其详细（vuln-categories.md 281 行含 regex 模式）。自验证步骤减少误报，跨文件数据流分析超越单文件扫描。168 行主体精简 + references 拆分是良好设计。主要不足：无反模式章节或 FAQ；全英文对中文用户不友好。",
+  "userSummary": "专业级安全扫描方法论，从依赖审计到补丁提案全流程。检测指南详细，有具体 regex 模式。自验证减少误报，跨文件分析是亮点。全英文阅读稍有不便，但方法论价值极高。"
+}
